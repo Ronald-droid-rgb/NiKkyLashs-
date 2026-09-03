@@ -188,7 +188,18 @@ th {
     <p class="info">
       Aqui aparecem os horários marcados pelas clientes.
     </p>
-
+<div id="totalAgendamentos" style="
+  background:#fce4ec;
+  color:#ad1457;
+  padding:15px;
+  border-radius:12px;
+  font-size:20px;
+  font-weight:bold;
+  margin:15px 0;
+  text-align:center;
+">
+  📊 Total de agendamentos: 0
+</div>
     <button onclick="carregarAgendamentos()">
       🔄 Atualizar agenda
     </button>
@@ -262,7 +273,8 @@ async function carregarAgendamentos() {
     if (!resposta.ok) {
       throw new Error(JSON.stringify(dados));
     }
-
+document.getElementById("totalAgendamentos").textContent =
+  "📊 Total de agendamentos: " + (dados ? dados.length : 0);
     if (!dados || dados.length === 0) {
 
       resultado.innerHTML =
