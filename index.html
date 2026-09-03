@@ -7,460 +7,263 @@
 <title>Nikky Lashes</title>
 
 <style>
-
-* {
-  box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #fff6fa;
-  color: #333;
+body{
+    font-family:Arial, sans-serif;
+    background:#fff5f8;
+    color:#333;
 }
 
 /* =========================
    INTRO
 ========================= */
 
-#intro {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-
-  background:
-    radial-gradient(circle at top, #f8b7d0 0%, #d86b9d 45%, #9e376d 100%);
-
-  transition:
-    opacity 0.7s ease,
-    visibility 0.7s ease;
+#intro{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#d76b9f,#a8326d);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    animation:saidaIntro 1s ease 3s forwards;
 }
 
-#intro.esconder {
-  opacity: 0;
-  visibility: hidden;
+.intro-conteudo{
+    text-align:center;
+    color:white;
+    animation:entradaLogo 1.2s ease;
 }
 
-.intro-conteudo {
-  width: 90%;
-  max-width: 430px;
-  color: white;
-  animation: aparecer 1s ease;
+.logo-nl{
+    width:150px;
+    height:150px;
+    margin:auto;
+    border-radius:50%;
+    border:4px solid rgba(255,255,255,.8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:58px;
+    font-weight:bold;
+    letter-spacing:4px;
+    background:rgba(255,255,255,.12);
+    box-shadow:0 10px 40px rgba(0,0,0,.2);
 }
 
-.logo-nl {
-  width: 145px;
-  height: 145px;
-
-  margin: 0 auto 25px;
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: Georgia, serif;
-  font-size: 58px;
-  font-weight: bold;
-  letter-spacing: 4px;
-
-  color: white;
-
-  border: 3px solid rgba(255,255,255,0.9);
-
-  box-shadow:
-    0 0 0 8px rgba(255,255,255,0.12),
-    0 15px 40px rgba(0,0,0,0.20);
-
-  background: rgba(255,255,255,0.10);
-
-  backdrop-filter: blur(5px);
+.intro-conteudo h1{
+    margin-top:25px;
+    font-size:38px;
 }
 
-.intro-conteudo h1 {
-  margin: 0;
-
-  font-family: Georgia, serif;
-
-  font-size: 40px;
-  letter-spacing: 2px;
+.intro-conteudo p{
+    margin-top:10px;
+    font-size:18px;
+    opacity:.9;
 }
 
-.intro-conteudo p {
-  margin: 12px 0 35px;
-
-  font-size: 18px;
-  letter-spacing: 1px;
+@keyframes entradaLogo{
+    from{
+        opacity:0;
+        transform:scale(.6);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
-.botao-intro {
-  border: none;
-
-  padding: 17px 32px;
-
-  border-radius: 50px;
-
-  background: white;
-  color: #a33d70;
-
-  font-size: 17px;
-  font-weight: bold;
-
-  cursor: pointer;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-
-  transition: 0.3s;
-}
-
-.botao-intro:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
-}
-
-@keyframes aparecer {
-
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+@keyframes saidaIntro{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
 }
 
 /* =========================
    CABEÇALHO
 ========================= */
 
-header {
-  background: linear-gradient(135deg, #dc79a6, #a94779);
-
-  color: white;
-
-  text-align: center;
-
-  padding: 35px 20px;
+header{
+    background:linear-gradient(135deg,#df75a7,#a93670);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
 }
 
-header h1 {
-  margin: 0;
-
-  font-family: Georgia, serif;
-
-  font-size: 38px;
+header h1{
+    font-size:42px;
 }
 
-header p {
-  margin: 10px 0 0;
-
-  font-size: 18px;
+header p{
+    margin-top:10px;
+    font-size:20px;
 }
 
 /* =========================
-   CONTAINER
+   FORMULÁRIO
 ========================= */
 
-.container {
-  width: 100%;
-  max-width: 700px;
-
-  margin: 35px auto;
-
-  padding: 0 15px;
+.container{
+    max-width:650px;
+    margin:45px auto;
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 10px 35px rgba(120,50,90,.12);
 }
 
-.agendamento {
-  background: white;
-
-  border-radius: 25px;
-
-  padding: 35px;
-
-  box-shadow:
-    0 10px 35px rgba(110,50,80,0.10);
+h2{
+    text-align:center;
+    color:#a44d7d;
+    font-size:32px;
+    margin-bottom:10px;
 }
 
-.titulo {
-  text-align: center;
-
-  color: #a34b79;
-
-  font-family: Georgia, serif;
-
-  font-size: 32px;
-
-  margin: 0 0 8px;
+.subtitulo{
+    text-align:center;
+    color:#777;
+    margin-bottom:30px;
+    font-size:18px;
 }
 
-.subtitulo {
-  text-align: center;
-
-  color: #777;
-
-  font-size: 17px;
-
-  margin: 0 0 30px;
-}
-
-/* =========================
-   CAMPOS
-========================= */
-
-.campo {
-  margin-bottom: 22px;
-}
-
-.campo label {
-  display: block;
-
-  font-size: 18px;
-
-  font-weight: bold;
-
-  margin-bottom: 9px;
-
-  color: #333;
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:22px;
+    margin-bottom:8px;
+    font-size:18px;
 }
 
 input,
-select {
-
-  width: 100%;
-
-  padding: 17px;
-
-  border: 1px solid #ddd;
-
-  border-radius: 14px;
-
-  background: white;
-
-  font-size: 17px;
-
-  color: #333;
-
-  outline: none;
-
-  appearance: auto;
+select{
+    width:100%;
+    padding:18px;
+    border:1px solid #ddd;
+    border-radius:16px;
+    font-size:18px;
+    background:white;
 }
 
 input:focus,
-select:focus {
-
-  border-color: #c45d8e;
-
-  box-shadow:
-    0 0 0 3px rgba(196,93,142,0.12);
+select:focus{
+    outline:none;
+    border-color:#c55b91;
 }
 
-/* =========================
-   VALOR
-========================= */
-
-.valor {
-
-  background: #fff0f6;
-
-  color: #a34b79;
-
-  padding: 20px;
-
-  border-radius: 15px;
-
-  text-align: center;
-
-  font-size: 23px;
-
-  font-weight: bold;
-
-  margin: 25px 0;
+.valor{
+    margin-top:25px;
+    padding:22px;
+    background:#fff0f6;
+    color:#a44d7d;
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    border-radius:18px;
 }
 
-/* =========================
-   BOTÃO
-========================= */
-
-.botao-confirmar {
-
-  width: 100%;
-
-  border: none;
-
-  border-radius: 15px;
-
-  padding: 19px;
-
-  background: linear-gradient(
-    135deg,
-    #d779a5,
-    #ad477b
-  );
-
-  color: white;
-
-  font-size: 19px;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition: 0.3s;
+button{
+    width:100%;
+    margin-top:30px;
+    padding:20px;
+    border:0;
+    border-radius:18px;
+    background:linear-gradient(135deg,#d66b9f,#ad3f77);
+    color:white;
+    font-size:21px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.botao-confirmar:hover {
-  transform: translateY(-2px);
+button:disabled{
+    opacity:.6;
 }
 
-.botao-confirmar:disabled {
-
-  opacity: 0.6;
-
-  cursor: not-allowed;
-
-  transform: none;
+.mensagem{
+    margin-top:25px;
+    padding:20px;
+    border-radius:18px;
+    text-align:center;
+    font-size:18px;
+    display:none;
 }
 
-/* =========================
-   MENSAGENS
-========================= */
-
-.mensagem {
-
-  display: none;
-
-  margin-top: 25px;
-
-  padding: 25px;
-
-  border-radius: 18px;
-
-  text-align: center;
-
-  font-size: 18px;
-
-  line-height: 1.7;
-
-  font-weight: bold;
+.sucesso{
+    display:block;
+    background:#e9f9ef;
+    color:#28734b;
 }
 
-.mensagem.sucesso {
-
-  display: block;
-
-  background: #eaf9f0;
-
-  color: #28764d;
-}
-
-.mensagem.erro {
-
-  display: block;
-
-  background: #fff0f0;
-
-  color: #b52d2d;
+.erro{
+    display:block;
+    background:#ffe9e9;
+    color:#a52828;
 }
 
 /* =========================
    RODAPÉ
 ========================= */
 
-footer {
-
-  text-align: center;
-
-  padding: 30px 15px;
-
-  color: #999;
-
-  font-size: 14px;
+footer{
+    text-align:center;
+    padding:30px;
+    color:#888;
 }
 
-/* =========================
-   RESPONSIVO
-========================= */
+/* CELULAR */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-  .logo-nl {
-    width: 125px;
-    height: 125px;
-    font-size: 50px;
-  }
+    header h1{
+        font-size:34px;
+    }
 
-  .intro-conteudo h1 {
-    font-size: 32px;
-  }
+    .container{
+        margin:25px 15px;
+        padding:25px 20px;
+    }
 
-  .intro-conteudo p {
-    font-size: 16px;
-  }
+    h2{
+        font-size:29px;
+    }
 
-  header {
-    padding: 30px 15px;
-  }
+    .logo-nl{
+        width:130px;
+        height:130px;
+        font-size:48px;
+    }
 
-  header h1 {
-    font-size: 32px;
-  }
-
-  .agendamento {
-    padding: 25px 20px;
-  }
-
-  .titulo {
-    font-size: 29px;
-  }
-
+    .intro-conteudo h1{
+        font-size:32px;
+    }
 }
-
 </style>
 </head>
 
 <body>
 
 <!-- =========================
-     INTRO
+     INTRO NL
 ========================= -->
 
 <div id="intro">
 
-  <div class="intro-conteudo">
+    <div class="intro-conteudo">
 
-    <div class="logo-nl">
-      NL
+        <div class="logo-nl">
+            NL
+        </div>
+
+        <h1>Nikky Lashes</h1>
+
+        <p>Realce sua beleza ✨</p>
+
     </div>
-
-    <h1>Nikky Lashes</h1>
-
-    <p>
-      Realce sua beleza ✨
-    </p>
-
-    <button
-      class="botao-intro"
-      onclick="abrirAgendamento()">
-
-      Agendar meu horário →
-      
-    </button>
-
-  </div>
 
 </div>
 
@@ -471,226 +274,138 @@ footer {
 
 <header>
 
-  <h1>
-    ✨ Nikky Lashes
-  </h1>
+    <h1>✨ Nikky Lashes</h1>
 
-  <p>
-    Realce sua beleza, agende seu horário
-  </p>
+    <p>Realce sua beleza, agende seu horário</p>
 
 </header>
 
 
 <!-- =========================
-     AGENDAMENTO
+     AGENDA
 ========================= -->
 
 <div class="container">
 
-  <div class="agendamento">
-
-    <h2 class="titulo">
-      Agende seu horário
-    </h2>
+    <h2>Agende seu horário</h2>
 
     <p class="subtitulo">
-      Escolha o melhor dia e horário para você.
+        Escolha o melhor dia e horário para você.
     </p>
 
 
-    <!-- NOME -->
+    <form id="formAgendamento">
 
-    <div class="campo">
+        <label>Nome da cliente</label>
 
-      <label for="nome">
-        Nome da cliente
-      </label>
+        <input
+            type="text"
+            id="nome"
+            placeholder="Digite seu nome"
+            required
+        >
 
-      <input
-        type="text"
-        id="nome"
-        placeholder="Digite seu nome"
-        autocomplete="name"
-        required>
 
-    </div>
+        <label>WhatsApp</label>
 
+        <input
+            type="tel"
+            id="whatsapp"
+            placeholder="(11) 99999-9999"
+            required
+        >
 
-    <!-- WHATSAPP -->
 
-    <div class="campo">
+        <label>Dia</label>
 
-      <label for="whatsapp">
-        WhatsApp
-      </label>
+        <select id="data" required>
 
-      <input
-        type="tel"
-        id="whatsapp"
-        placeholder="(11) 99999-9999"
-        autocomplete="tel"
-        required>
+            <option value="">
+                Escolha o dia
+            </option>
 
-    </div>
+        </select>
 
 
-    <!-- DATA -->
+        <label>Horário</label>
 
-    <div class="campo">
+        <select id="horario" required disabled>
 
-      <label for="data">
-        Dia
-      </label>
+            <option value="">
+                Escolha primeiro o dia
+            </option>
 
-      <select id="data" required>
+        </select>
 
-        <option value="">
-          Escolha o dia
-        </option>
 
-      </select>
+        <label>Modelo de cílios</label>
 
-    </div>
+        <select id="modelo" required>
 
+            <option value="">
+                Selecione o modelo
+            </option>
 
-    <!-- HORÁRIO -->
+            <option value="Clássico" data-valor="100">
+                Clássico — R$ 100,00
+            </option>
 
-    <div class="campo">
+            <option value="Volume Brasileiro" data-valor="120">
+                Volume Brasileiro — R$ 120,00
+            </option>
 
-      <label for="horario">
-        Horário
-      </label>
+            <option value="Volume Russo" data-valor="140">
+                Volume Russo — R$ 140,00
+            </option>
 
-      <select id="horario" required disabled>
+            <option value="Volume Híbrido" data-valor="130">
+                Volume Híbrido — R$ 130,00
+            </option>
 
-        <option value="">
-          Escolha primeiro o dia
-        </option>
+            <option value="Mega Volume" data-valor="160">
+                Mega Volume — R$ 160,00
+            </option>
 
-      </select>
+            <option value="Manutenção" data-valor="90">
+                Manutenção — R$ 90,00
+            </option>
 
-    </div>
+        </select>
 
 
-    <!-- MODELO -->
+        <div class="valor" id="valor">
+            Valor do procedimento: R$ 0,00
+        </div>
 
-    <div class="campo">
 
-      <label for="modelo">
-        Modelo de cílios
-      </label>
+        <button
+            type="submit"
+            id="botao"
+        >
+            Confirmar agendamento
+        </button>
 
-      <select id="modelo" required>
+    </form>
 
-        <option value="">
-          Selecione o modelo
-        </option>
-
-        <option
-          value="Clássico"
-          data-valor="100">
-
-          Clássico — R$ 100,00
-
-        </option>
-
-        <option
-          value="Volume Brasileiro"
-          data-valor="120">
-
-          Volume Brasileiro — R$ 120,00
-
-        </option>
-
-        <option
-          value="Volume Russo"
-          data-valor="140">
-
-          Volume Russo — R$ 140,00
-
-        </option>
-
-        <option
-          value="Volume Híbrido"
-          data-valor="130">
-
-          Volume Híbrido — R$ 130,00
-
-        </option>
-
-        <option
-          value="Mega Volume"
-          data-valor="160">
-
-          Mega Volume — R$ 160,00
-
-        </option>
-
-        <option
-          value="Manutenção"
-          data-valor="90">
-
-          Manutenção — R$ 90,00
-
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <!-- VALOR -->
-
-    <div class="valor">
-
-      Valor do procedimento:
-      <span id="valor">
-        R$ 0,00
-      </span>
-
-    </div>
-
-
-    <!-- BOTÃO -->
-
-    <button
-      type="button"
-      id="botaoConfirmar"
-      class="botao-confirmar"
-      onclick="fazerAgendamento()">
-
-      Confirmar agendamento
-
-    </button>
-
-
-    <!-- MENSAGEM -->
 
     <div
-      id="mensagem"
-      class="mensagem">
-    </div>
-
-  </div>
+        id="mensagem"
+        class="mensagem"
+    ></div>
 
 </div>
 
 
 <footer>
-
-  © 2026 Nikky Lashes
-  <br>
-  Todos os direitos reservados.
-
+    Nikky Lashes ✨
 </footer>
 
 
 <script>
 
-/* =================================
+/* ==========================================
    SUPABASE
-================================= */
+========================================== */
 
 const SUPABASE_URL =
 "https://annmuqmsdjzysusnfklf.supabase.co";
@@ -699,706 +414,445 @@ const SUPABASE_KEY =
 "sb_publishable_L_EQc3998bYRyLap6B9Jzg_sDfz5wuV";
 
 
-/* =================================
-   HORÁRIOS
-================================= */
+/* ==========================================
+   ELEMENTOS
+========================================== */
 
-const HORARIOS = [
-  "09:00",
-  "10:00",
-  "11:00",
-  "12:00",
-  "13:00",
-  "14:00",
-  "15:00",
-  "16:00",
-  "17:00",
-  "18:00"
+const dataSelect =
+document.getElementById("data");
+
+const horarioSelect =
+document.getElementById("horario");
+
+const modeloSelect =
+document.getElementById("modelo");
+
+const valorDiv =
+document.getElementById("valor");
+
+const form =
+document.getElementById("formAgendamento");
+
+const mensagem =
+document.getElementById("mensagem");
+
+const botao =
+document.getElementById("botao");
+
+
+/* ==========================================
+   HORÁRIOS DO STUDIO
+========================================== */
+
+const horarios = [
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00"
 ];
 
 
-/* =================================
-   ABRIR AGENDAMENTO
-================================= */
-
-function abrirAgendamento() {
-
-  document
-    .getElementById("intro")
-    .classList.add("esconder");
-
-  setTimeout(function() {
-
-    document
-      .querySelector(".agendamento")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-
-  }, 300);
-
-}
-
-
-/* =================================
+/* ==========================================
    CRIAR DIAS
-================================= */
+========================================== */
 
-function criarDias() {
+function criarDias(){
 
-  const selectData =
-    document.getElementById("data");
+    const hoje = new Date();
 
-  const hoje = new Date();
+    for(let i = 0; i < 60; i++){
 
-  for (let i = 0; i < 60; i++) {
+        const data = new Date(hoje);
 
-    const data = new Date(hoje);
-
-    data.setDate(
-      hoje.getDate() + i
-    );
-
-    const ano =
-      data.getFullYear();
-
-    const mes =
-      String(data.getMonth() + 1)
-      .padStart(2, "0");
-
-    const dia =
-      String(data.getDate())
-      .padStart(2, "0");
-
-    const valor =
-      `${ano}-${mes}-${dia}`;
-
-    const texto =
-      data.toLocaleDateString(
-        "pt-BR",
-        {
-          weekday: "short",
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric"
-        }
-      );
-
-    const option =
-      document.createElement("option");
-
-    option.value = valor;
-
-    option.textContent =
-      texto.charAt(0).toUpperCase()
-      + texto.slice(1);
-
-    selectData.appendChild(option);
-
-  }
-
-}
-
-
-/* =================================
-   BUSCAR HORÁRIOS OCUPADOS
-================================= */
-
-async function carregarHorarios() {
-
-  const data =
-    document.getElementById("data").value;
-
-  const selectHorario =
-    document.getElementById("horario");
-
-  selectHorario.innerHTML = "";
-
-  if (!data) {
-
-    selectHorario.disabled = true;
-
-    const option =
-      document.createElement("option");
-
-    option.value = "";
-
-    option.textContent =
-      "Escolha primeiro o dia";
-
-    selectHorario.appendChild(option);
-
-    return;
-  }
-
-  selectHorario.disabled = true;
-
-  const carregando =
-    document.createElement("option");
-
-  carregando.value = "";
-
-  carregando.textContent =
-    "Carregando horários...";
-
-  selectHorario.appendChild(carregando);
-
-
-  try {
-
-    const resposta = await fetch(
-
-      SUPABASE_URL +
-      "/rest/v1/rpc/horarios_ocupados",
-
-      {
-
-        method: "POST",
-
-        headers: {
-
-          "Content-Type":
-            "application/json",
-
-          "apikey":
-            SUPABASE_KEY,
-
-          "Authorization":
-            "Bearer " + SUPABASE_KEY
-
-        },
-
-        body: JSON.stringify({
-          p_data: data
-        })
-
-      }
-
-    );
-
-
-    const dados =
-      await resposta.json();
-
-
-    if (!resposta.ok) {
-
-      throw new Error(
-        JSON.stringify(dados)
-      );
-
-    }
-
-
-    const ocupados =
-      dados.map(function(item) {
-
-        return String(item.horario)
-          .substring(0, 5);
-
-      });
-
-
-    selectHorario.innerHTML = "";
-
-
-    const escolha =
-      document.createElement("option");
-
-    escolha.value = "";
-
-    escolha.textContent =
-      "Escolha o horário";
-
-    selectHorario.appendChild(escolha);
-
-
-    HORARIOS.forEach(function(horario) {
-
-      const option =
-        document.createElement("option");
-
-      option.value = horario;
-
-
-      if (ocupados.includes(horario)) {
-
-        option.textContent =
-          horario + " - OCUPADO";
-
-        option.disabled = true;
-
-      } else {
-
-        option.textContent =
-          horario + " - Disponível";
-
-      }
-
-
-      selectHorario.appendChild(option);
-
-    });
-
-
-    selectHorario.disabled = false;
-
-
-  } catch (erro) {
-
-    console.error(erro);
-
-    selectHorario.innerHTML = "";
-
-    const option =
-      document.createElement("option");
-
-    option.value = "";
-
-    option.textContent =
-      "Erro ao carregar horários";
-
-    selectHorario.appendChild(option);
-
-  }
-
-}
-
-
-/* =================================
-   MOSTRAR VALOR
-================================= */
-
-function atualizarValor() {
-
-  const modelo =
-    document.getElementById("modelo");
-
-  const opcao =
-    modelo.options[
-      modelo.selectedIndex
-    ];
-
-  const valor =
-    opcao.getAttribute("data-valor");
-
-
-  if (valor) {
-
-    document.getElementById("valor")
-      .textContent =
-      "R$ " +
-      Number(valor)
-        .toFixed(2)
-        .replace(".", ",");
-
-  } else {
-
-    document.getElementById("valor")
-      .textContent =
-      "R$ 0,00";
-
-  }
-
-}
-
-
-/* =================================
-   WHATSAPP
-================================= */
-
-document
-  .getElementById("whatsapp")
-  .addEventListener(
-    "input",
-    function() {
-
-      let numero =
-        this.value.replace(/\D/g, "");
-
-      if (numero.length > 11) {
-        numero =
-          numero.substring(0, 11);
-      }
-
-      if (numero.length <= 2) {
-
-        this.value =
-          numero;
-
-      } else if (numero.length <= 7) {
-
-        this.value =
-          "(" +
-          numero.substring(0, 2) +
-          ") " +
-          numero.substring(2);
-
-      } else {
-
-        this.value =
-          "(" +
-          numero.substring(0, 2) +
-          ") " +
-          numero.substring(2, 7) +
-          "-" +
-          numero.substring(7);
-
-      }
-
-    }
-  );
-
-
-/* =================================
-   FAZER AGENDAMENTO
-================================= */
-
-async function fazerAgendamento() {
-
-  const nome =
-    document.getElementById("nome")
-      .value.trim();
-
-  const whatsapp =
-    document.getElementById("whatsapp")
-      .value.trim();
-
-  const data =
-    document.getElementById("data")
-      .value;
-
-  const horario =
-    document.getElementById("horario")
-      .value;
-
-  const modelo =
-    document.getElementById("modelo")
-      .value;
-
-
-  const opcaoModelo =
-    document.getElementById("modelo")
-      .options[
-        document.getElementById("modelo")
-          .selectedIndex
-      ];
-
-
-  const valor =
-    opcaoModelo
-      .getAttribute("data-valor");
-
-
-  const mensagem =
-    document.getElementById("mensagem");
-
-  const botao =
-    document.getElementById(
-      "botaoConfirmar"
-    );
-
-
-  mensagem.className =
-    "mensagem";
-
-  mensagem.innerHTML = "";
-
-
-  /* -----------------------------
-     VALIDAÇÃO
-  ----------------------------- */
-
-  if (!nome ||
-      !whatsapp ||
-      !data ||
-      !horario ||
-      !modelo) {
-
-    mensagem.className =
-      "mensagem erro";
-
-    mensagem.innerHTML =
-      "⚠️ Preencha todos os campos antes de confirmar.";
-
-    return;
-  }
-
-
-  if (!valor) {
-
-    mensagem.className =
-      "mensagem erro";
-
-    mensagem.innerHTML =
-      "⚠️ Selecione um modelo de cílios.";
-
-    return;
-  }
-
-
-  /* -----------------------------
-     DESABILITAR BOTÃO
-  ----------------------------- */
-
-  botao.disabled = true;
-
-  botao.textContent =
-    "Agendando...";
-
-
-  try {
-
-    const resposta =
-      await fetch(
-
-        SUPABASE_URL +
-        "/rest/v1/rpc/fazer_agendamento",
-
-        {
-
-          method: "POST",
-
-          headers: {
-
-            "Content-Type":
-              "application/json",
-
-            "apikey":
-              SUPABASE_KEY,
-
-            "Authorization":
-              "Bearer " + SUPABASE_KEY
-
-          },
-
-          body:
-            JSON.stringify({
-
-              p_nome:
-                nome,
-
-              p_whatsapp:
-                whatsapp.replace(
-                  /\D/g,
-                  ""
-                ),
-
-              p_data:
-                data,
-
-              p_horario:
-                horario,
-
-              p_modelo:
-                modelo,
-
-              p_valor:
-                Number(valor)
-
-            })
-
-        }
-
-      );
-
-
-    const resultado =
-      await resposta.json();
-
-
-    if (!resposta.ok) {
-
-      throw new Error(
-        JSON.stringify(resultado)
-      );
-
-    }
-
-
-    /* -----------------------------
-       SUCESSO
-    ----------------------------- */
-
-    if (resultado.sucesso) {
-
-      const dataFormatada =
-        new Date(
-          data + "T00:00:00"
-        )
-        .toLocaleDateString(
-          "pt-BR"
+        data.setDate(
+            hoje.getDate() + i
         );
 
+        const ano =
+            data.getFullYear();
 
-      mensagem.className =
-        "mensagem sucesso";
+        const mes =
+            String(data.getMonth()+1)
+            .padStart(2,"0");
 
+        const dia =
+            String(data.getDate())
+            .padStart(2,"0");
 
-      mensagem.innerHTML =
+        const valor =
+            `${ano}-${mes}-${dia}`;
 
-        "✅ <strong>Agendamento realizado com sucesso!</strong>" +
+        const texto =
+            `${dia}/${mes}/${ano}`;
 
-        "<br><br>" +
+        const option =
+            document.createElement("option");
 
-        "Cliente: " +
-        escapar(nome) +
+        option.value = valor;
 
-        "<br>" +
+        option.textContent = texto;
 
-        "Data: " +
-        dataFormatada +
-
-        "<br>" +
-
-        "Horário: " +
-        horario +
-
-        "<br>" +
-
-        "Modelo: " +
-        escapar(modelo) +
-
-        "<br>" +
-
-        "Valor: R$ " +
-        Number(valor)
-          .toFixed(2)
-          .replace(".", ",");
+        dataSelect.appendChild(option);
+    }
+}
 
 
-      /* Atualiza horários */
+/* ==========================================
+   BUSCAR HORÁRIOS OCUPADOS
+========================================== */
 
-      await carregarHorarios();
+async function carregarHorarios(){
+
+    const data =
+        dataSelect.value;
+
+    horarioSelect.innerHTML =
+        '<option value="">Carregando horários...</option>';
+
+    horarioSelect.disabled = true;
+
+    if(!data){
+
+        horarioSelect.innerHTML =
+            '<option value="">Escolha primeiro o dia</option>';
+
+        return;
+    }
+
+    try{
+
+        const resposta =
+            await fetch(
+                SUPABASE_URL +
+                "/rest/v1/rpc/horarios_ocupados",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json",
+
+                        "apikey":
+                            SUPABASE_KEY,
+
+                        "Authorization":
+                            "Bearer " +
+                            SUPABASE_KEY
+                    },
+
+                    body:JSON.stringify({
+                        p_data:data
+                    })
+                }
+            );
 
 
-      /* Limpa campos */
-
-      document.getElementById("nome")
-        .value = "";
-
-      document.getElementById("whatsapp")
-        .value = "";
-
-      document.getElementById("data")
-        .value = "";
-
-      document.getElementById("horario")
-        .innerHTML =
-        '<option value="">Escolha primeiro o dia</option>';
-
-      document.getElementById("horario")
-        .disabled = true;
-
-      document.getElementById("modelo")
-        .value = "";
-
-      atualizarValor();
+        const dados =
+            await resposta.json();
 
 
-    } else {
+        if(!resposta.ok){
 
-      mensagem.className =
-        "mensagem erro";
+            throw new Error(
+                JSON.stringify(dados)
+            );
+        }
 
-      mensagem.innerHTML =
-        "⚠️ " +
-        (resultado.mensagem ||
-         "Não foi possível realizar o agendamento.");
+
+        const ocupados =
+            dados.map(item =>
+                String(item.horario)
+                .substring(0,5)
+            );
+
+
+        horarioSelect.innerHTML =
+            '<option value="">Escolha o horário</option>';
+
+
+        horarios.forEach(hora => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = hora;
+
+
+            if(ocupados.includes(hora)){
+
+                option.disabled = true;
+
+                option.textContent =
+                    hora + " - OCUPADO";
+
+            }else{
+
+                option.textContent =
+                    hora;
+            }
+
+
+            horarioSelect.appendChild(option);
+
+        });
+
+
+        horarioSelect.disabled = false;
+
+    }catch(erro){
+
+        console.error(erro);
+
+        horarioSelect.innerHTML =
+            '<option value="">Erro ao carregar horários</option>';
 
     }
 
-
-  } catch (erro) {
-
-    console.error(erro);
-
-    mensagem.className =
-      "mensagem erro";
-
-    mensagem.innerHTML =
-      "❌ Ocorreu um erro ao realizar o agendamento. Tente novamente.";
-
-
-  } finally {
-
-    botao.disabled = false;
-
-    botao.textContent =
-      "Confirmar agendamento";
-
-  }
-
 }
 
 
-/* =================================
-   PROTEÇÃO CONTRA HTML
-================================= */
+/* ==========================================
+   ALTERAÇÃO DO DIA
+========================================== */
 
-function escapar(texto) {
-
-  if (
-    texto === null ||
-    texto === undefined
-  ) {
-    return "";
-  }
-
-  return String(texto)
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
-
-}
-
-
-/* =================================
-   EVENTOS
-================================= */
-
-document
-  .getElementById("data")
-  .addEventListener(
+dataSelect.addEventListener(
     "change",
     carregarHorarios
-  );
+);
 
 
-document
-  .getElementById("modelo")
-  .addEventListener(
+/* ==========================================
+   MOSTRAR VALOR
+========================================== */
+
+modeloSelect.addEventListener(
     "change",
-    atualizarValor
-  );
+    function(){
+
+        const opcao =
+            modeloSelect.options[
+                modeloSelect.selectedIndex
+            ];
+
+        const valor =
+            Number(
+                opcao.dataset.valor || 0
+            );
+
+        valorDiv.textContent =
+            "Valor do procedimento: R$ " +
+            valor.toFixed(2)
+                .replace(".",",");
+    }
+);
 
 
-/* =================================
+/* ==========================================
+   ENVIAR AGENDAMENTO
+========================================== */
+
+form.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        mensagem.className =
+            "mensagem";
+
+        mensagem.style.display =
+            "none";
+
+
+        botao.disabled = true;
+
+        botao.textContent =
+            "Agendando...";
+
+
+        const nome =
+            document.getElementById("nome")
+            .value.trim();
+
+        const whatsapp =
+            document.getElementById("whatsapp")
+            .value.trim();
+
+        const data =
+            dataSelect.value;
+
+        const horario =
+            horarioSelect.value;
+
+        const modelo =
+            modeloSelect.value;
+
+
+        const opcao =
+            modeloSelect.options[
+                modeloSelect.selectedIndex
+            ];
+
+        const valor =
+            Number(
+                opcao.dataset.valor || 0
+            );
+
+
+        try{
+
+            const resposta =
+                await fetch(
+                    SUPABASE_URL +
+                    "/rest/v1/rpc/fazer_agendamento",
+                    {
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json",
+
+                            "apikey":
+                                SUPABASE_KEY,
+
+                            "Authorization":
+                                "Bearer " +
+                                SUPABASE_KEY
+                        },
+
+                        body:JSON.stringify({
+
+                            p_nome:
+                                nome,
+
+                            p_whatsapp:
+                                whatsapp,
+
+                            p_data:
+                                data,
+
+                            p_horario:
+                                horario,
+
+                            p_modelo:
+                                modelo,
+
+                            p_valor:
+                                valor
+
+                        })
+                    }
+                );
+
+
+            const resultado =
+                await resposta.json();
+
+
+            if(!resposta.ok){
+
+                throw new Error(
+                    JSON.stringify(resultado)
+                );
+            }
+
+
+            if(
+                resultado &&
+                resultado.sucesso === false
+            ){
+
+                throw new Error(
+                    resultado.mensagem ||
+                    "Horário indisponível."
+                );
+            }
+
+
+            mensagem.className =
+                "mensagem sucesso";
+
+
+            mensagem.innerHTML = `
+                ✅ <strong>Agendamento realizado com sucesso!</strong>
+                <br><br>
+                Cliente: ${nome}
+                <br>
+                Data: ${data.split("-").reverse().join("/")}
+                <br>
+                Horário: ${horario}
+                <br>
+                Modelo: ${modelo}
+                <br>
+                Valor: R$ ${valor.toFixed(2).replace(".",",")}
+                <br><br>
+                💕 Obrigada por escolher a Nikky Lashes!
+            `;
+
+
+            mensagem.style.display =
+                "block";
+
+
+            form.reset();
+
+
+            valorDiv.textContent =
+                "Valor do procedimento: R$ 0,00";
+
+
+            horarioSelect.innerHTML =
+                '<option value="">Escolha primeiro o dia</option>';
+
+            horarioSelect.disabled =
+                true;
+
+
+        }catch(erro){
+
+            console.error(erro);
+
+
+            mensagem.className =
+                "mensagem erro";
+
+
+            mensagem.innerHTML =
+                "❌ Não foi possível realizar o agendamento.<br><br>" +
+                "Esse horário pode ter sido reservado por outra cliente. " +
+                "Atualize a página e tente novamente.";
+
+
+            mensagem.style.display =
+                "block";
+
+        }
+
+
+        botao.disabled =
+            false;
+
+        botao.textContent =
+            "Confirmar agendamento";
+
+    }
+);
+
+
+/* ==========================================
    INICIAR
-================================= */
+========================================== */
 
 criarDias();
-
-atualizarValor();
 
 </script>
 
 </body>
-  </html>
+</html>
