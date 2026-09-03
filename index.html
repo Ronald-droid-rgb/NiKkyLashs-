@@ -1,1 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Nikky Lashes | Agendamento</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #fdf7fa;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    .topo {
+      background: linear-gradient(135deg, #d98bb2, #a94f7e);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    .topo h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .topo p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 25px auto;
+      padding: 0 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .titulo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .titulo h2 {
+      color: #a94f7e;
+      font-size: 24px;
+      margin-bottom: 7px;
+    }
+
+    .titulo p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .campo {
+      margin-bottom: 18px;
+    }
+
+    .campo label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .campo input,
+    .campo select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+      background: #fff;
+    }
+
+    .campo input:focus,
+    .campo select:focus {
+      border-color: #c66c99;
+      box-shadow: 0 0 0 3px rgba(198,108,153,0.12);
+    }
+
+    .linha {
+      display: flex;
+      gap: 12px;
+    }
+
+    .linha .campo {
+      flex: 1;
+    }
+
+    .valor {
+      background: #fff3f8;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #a94f7e;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .botao {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      background: linear-gradient(135deg, #d98bb2, #a94f7e);
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .botao:active {
+      transform: scale(0.98);
+    }
+
+    .mensagem {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .sucesso {
+      display: block;
+      background: #e9f9ef;
+      color: #267346;
+    }
+
+    .rodape {
+      text-align: center;
+      color: #999;
+      font-size: 13px;
+      padding: 25px 15px;
+    }
+
+    @media (max-width: 500px) {
+      .topo h1 {
+        font-size: 28px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .linha {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topo">
+    <h1>✨ Nikky Lashes</h1>
+    <p>Realce sua beleza, agende seu horário</p>
+  </header>
+
+  <main class="container">
+
+    <div class="card">
+
+      <div class="titulo">
+        <h2>Agende seu horário</h2>
+        <p>Preencha os dados abaixo para solicitar seu atendimento.</p>
+      </div>
+
+      <form id="formAgendamento">
+
+        <div class="campo">
+          <label for="nome">Nome da cliente</label>
+          <input
+            type="text"
+            id="nome"
+            placeholder="Digite seu nome"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label for="whatsapp">WhatsApp</label>
+          <input
+            type="tel"
+            id="whatsapp"
+            placeholder="(11) 99999-9999"
+            required
+          >
+        </div>
+
+        <div class="linha">
+
+          <div class="campo">
+            <label for="data">Dia</label>
+            <input
+              type="date"
+              id="data"
+              required
+            >
+          </div>
+
+          <div class="campo">
+            <label for="horario">Horário</label>
+            <select id="horario" required>
+              <option value="">Escolha</option>
+              <option value="08:00">08:00</option>
+              <option value="09:00">09:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+              <option value="19:00">19:00</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="campo">
+          <label for="modelo">Modelo de cílios</label>
+
+          <select id="modelo" required>
+            <option value="">Selecione o modelo</option>
+            <option value="Clássico">Clássico</option>
+            <option value="Volume Brasileiro">Volume Brasileiro</option>
+            <option value="Volume Russo">Volume Russo</option>
+            <option value="Volume Híbrido">Volume Híbrido</option>
+            <option value="Mega Volume">Mega Volume</option>
+            <option value="Manutenção">Manutenção</option>
+          </select>
+        </div>
+
+        <div class="valor">
+          Valor do procedimento:
+          <span id="valor">R$ 0,00</span>
+        </div>
+
+        <button class="botao" type="submit">
+          Confirmar agendamento
+        </button>
+
+        <div id="mensagem" class="mensagem"></div>
+
+      </form>
+
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    Nikky Lashes © 2026<br>
+    Agendamento online
+  </footer>
+
+  <script>
+
+    const modelo = document.getElementById("modelo");
+    const valor = document.getElementById("valor");
+    const data = document.getElementById("data");
+    const formulario = document.getElementById("formAgendamento");
+    const mensagem = document.getElementById("mensagem");
+
+    const precos = {
+      "Clássico": 100,
+      "Volume Brasileiro": 120,
+      "Volume Russo": 140,
+      "Volume Híbrido": 130,
+      "Mega Volume": 160,
+      "Manutenção": 90
+    };
+
+    modelo.addEventListener("change", function() {
+
+      const preco = precos[this.value] || 0;
+
+      valor.textContent = preco.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+
+    });
+
+    const hoje = new Date();
+
+    const ano = hoje.getFullYear();
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoje.getDate()).padStart(2, "0");
+
+    data.min = `${ano}-${mes}-${dia}`;
+
+    formulario.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const whatsapp = document.getElementById("whatsapp").value;
+      const diaEscolhido = document.getElementById("data").value;
+      const horario = document.getElementById("horario").value;
+      const modeloEscolhido = modelo.value;
+
+      const preco = precos[modeloEscolhido] || 0;
+
+      const dataFormatada = new Date(
+        diaEscolhido + "T00:00:00"
+      ).toLocaleDateString("pt-BR");
+
+      mensagem.className = "mensagem sucesso";
+
+      mensagem.innerHTML =
+        "Solicitação preenchida com sucesso!<br><br>" +
+        "Cliente: " + nome + "<br>" +
+        "Data: " + dataFormatada + "<br>" +
+        "Horário: " + horario + "<br>" +
+        "Modelo: " + modeloEscolhido + "<br>" +
+        "Valor: " +
+        preco.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL"
+        }) +
+        "<br><br>" +
+        "Em breve seu agendamento será confirmado.";
+
+      mensagem.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    });
+
+  </script>
+
+</body>
+  </html>
