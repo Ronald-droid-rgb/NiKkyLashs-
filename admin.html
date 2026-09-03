@@ -1,1 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel - Nikky Lashes</title>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff5f9;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #e91e63, #ad1457);
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin: 8px 0 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.login,
+.painel {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.login {
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+input,
+button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+input {
+  border: 1px solid #ddd;
+}
+
+button {
+  border: none;
+  background: #e91e63;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c2185b;
+}
+
+.erro {
+  color: #c62828;
+  margin-top: 10px;
+}
+
+.info {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th,
+td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+th {
+  background: #fce4ec;
+}
+
+.excluir {
+  background: #d32f2f;
+  width: auto;
+  padding: 8px 12px;
+  margin: 0;
+}
+
+.oculto {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  td {
+    border: none;
+    padding: 7px;
+  }
+
+  td::before {
+    font-weight: bold;
+  }
+
+  td:nth-child(1)::before { content: "Cliente: "; }
+  td:nth-child(2)::before { content: "WhatsApp: "; }
+  td:nth-child(3)::before { content: "Data: "; }
+  td:nth-child(4)::before { content: "Horário: "; }
+  td:nth-child(5)::before { content: "Modelo: "; }
+  td:nth-child(6)::before { content: "Valor: R$ "; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>✨ Nikky Lashes</h1>
+  <p>Painel de Agendamentos</p>
+</header>
+
+<div class="container">
+
+  <div id="login" class="login">
+    <h2>🔐 Área da profissional</h2>
+
+    <p>Digite a senha para acessar seus agendamentos.</p>
+
+    <input
+      type="password"
+      id="senha"
+      placeholder="Digite a senha"
+    >
+
+    <button onclick="entrar()">Entrar</button>
+
+    <div id="erro" class="erro"></div>
+  </div>
+
+  <div id="painel" class="painel oculto">
+
+    <h2>📅 Meus agendamentos</h2>
+
+    <p class="info">
+      Aqui aparecem os horários marcados pelas clientes.
+    </p>
+
+    <button onclick="carregarAgendamentos()">
+      🔄 Atualizar agenda
+    </button>
+
+    <div id="resultado"></div>
+
+  </div>
+
+</div>
+
+<script>
+
+const SUPABASE_URL =
+"https://annmuqmsdjzysusnfklf.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_L_EQc3998bYRyLap6B9Jzg_sDfz5wuV";
+
+/*
+  IMPORTANTE:
+  Troque esta senha antes de publicar.
+*/
+const SENHA_ADMIN = "nikky123";
+
+
+function entrar() {
+
+  const senha = document.getElementById("senha").value;
+
+  if (senha === SENHA_ADMIN) {
+
+    document.getElementById("login").classList.add("oculto");
+    document.getElementById("painel").classList.remove("oculto");
+
+    carregarAgendamentos();
+
+  } else {
+
+    document.getElementById("erro").textContent =
+      "Senha incorreta.";
+
+  }
+}
+
+
+async function carregarAgendamentos() {
+
+  const resultado = document.getElementById("resultado");
+
+  resultado.innerHTML = "<p>Carregando agendamentos...</p>";
+
+  try {
+
+    const resposta = await fetch(
+      SUPABASE_URL + "/rest/v1/rpc/listar_agendamentos",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY
+        },
+
+        body: JSON.stringify({})
+      }
+    );
+
+    const dados = await resposta.json();
+
+    if (!resposta.ok) {
+      throw new Error(JSON.stringify(dados));
+    }
+
+    if (!dados || dados.length === 0) {
+
+      resultado.innerHTML =
+        "<p>📭 Nenhum agendamento encontrado.</p>";
+
+      return;
+    }
+
+    let html = `
+      <table>
+
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>WhatsApp</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Modelo</th>
+            <th>Valor</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+
+        <tbody>
+    `;
+
+    dados.forEach(agendamento => {
+
+      const data = new Date(
+        agendamento.data_agendamento + "T00:00:00"
+      );
+
+      const dataFormatada =
+        data.toLocaleDateString("pt-BR");
+
+      const horario =
+        String(agendamento.horario).substring(0,5);
+
+      html += `
+        <tr>
+
+          <td>${escapar(agendamento.nome)}</td>
+
+          <td>${escapar(agendamento.whatsapp)}</td>
+
+          <td>${dataFormatada}</td>
+
+          <td>${horario}</td>
+
+          <td>${escapar(agendamento.modelo)}</td>
+
+          <td>
+            R$ ${Number(agendamento.valor)
+              .toFixed(2)
+              .replace(".", ",")}
+          </td>
+
+          <td>
+            <button
+              class="excluir"
+              onclick="excluirAgendamento(${agendamento.id})">
+              Excluir
+            </button>
+          </td>
+
+        </tr>
+      `;
+
+    });
+
+    html += `
+        </tbody>
+      </table>
+    `;
+
+    resultado.innerHTML = html;
+
+  } catch (erro) {
+
+    resultado.innerHTML =
+      "<p class='erro'>Erro ao carregar os agendamentos.</p>";
+
+    console.error(erro);
+  }
+}
+
+
+async function excluirAgendamento(id) {
+
+  const confirmar =
+    confirm("Tem certeza que deseja excluir este agendamento?");
+
+  if (!confirmar) return;
+
+  try {
+
+    const resposta = await fetch(
+      SUPABASE_URL + "/rest/v1/agendamentos?id=eq." + id,
+      {
+        method: "DELETE",
+
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY
+        }
+      }
+    );
+
+    if (!resposta.ok) {
+
+      const erro = await resposta.text();
+
+      throw new Error(erro);
+    }
+
+    alert("Agendamento excluído.");
+
+    carregarAgendamentos();
+
+  } catch (erro) {
+
+    alert(
+      "Não foi possível excluir o agendamento."
+    );
+
+    console.error(erro);
+  }
+}
+
+
+function escapar(texto) {
+
+  if (texto === null || texto === undefined) {
+    return "";
+  }
+
+  return String(texto)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+</script>
+
+</body>
+</html>
