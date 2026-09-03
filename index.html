@@ -7,6 +7,7 @@
 <title>Nikky Lashes</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -14,276 +15,562 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
-    background:#fff5f8;
-    color:#333;
+    font-family:Georgia, "Times New Roman", serif;
+    background:#080808;
+    color:#eee;
 }
 
-/* =========================
+
+/* =====================================================
    INTRO
-========================= */
+===================================================== */
 
 #intro{
     position:fixed;
     inset:0;
-    background:linear-gradient(135deg,#d76b9f,#a8326d);
+    z-index:99999;
+
+    background:#000;
+
     display:flex;
-    align-items:center;
     justify-content:center;
-    z-index:9999;
-    animation:saidaIntro 1s ease 3s forwards;
+    align-items:center;
+
+    animation:
+        introSaida 1.2s ease 3.5s forwards;
 }
 
 .intro-conteudo{
     text-align:center;
-    color:white;
-    animation:entradaLogo 1.2s ease;
+
+    animation:
+        logoEntrada 1.5s ease forwards;
 }
 
-.logo-nl{
-    width:150px;
-    height:150px;
+
+/* LOGO NL */
+
+.logo{
+    position:relative;
+
+    width:270px;
+    height:190px;
+
     margin:auto;
-    border-radius:50%;
-    border:4px solid rgba(255,255,255,.8);
+
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:58px;
-    font-weight:bold;
-    letter-spacing:4px;
-    background:rgba(255,255,255,.12);
-    box-shadow:0 10px 40px rgba(0,0,0,.2);
+
+    color:#e8c985;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size:105px;
+    font-weight:400;
+
+    letter-spacing:-30px;
+
+    text-shadow:
+        0 0 5px rgba(232,201,133,.25),
+        0 0 25px rgba(232,201,133,.12);
 }
 
+
+/* detalhes decorativos */
+
+.logo::before{
+    content:"";
+    position:absolute;
+
+    width:220px;
+    height:1px;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        #e8c985,
+        transparent
+    );
+
+    bottom:25px;
+    left:25px;
+}
+
+.logo::after{
+    content:"✦";
+
+    position:absolute;
+
+    color:#e8c985;
+
+    font-size:18px;
+
+    bottom:4px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+
 .intro-conteudo h1{
-    margin-top:25px;
-    font-size:38px;
+    margin-top:15px;
+
+    color:#e8c985;
+
+    font-size:36px;
+    font-weight:400;
+
+    letter-spacing:5px;
 }
 
 .intro-conteudo p{
-    margin-top:10px;
-    font-size:18px;
-    opacity:.9;
+    margin-top:13px;
+
+    color:#aaa;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
 }
 
-@keyframes entradaLogo{
-    from{
+
+/* animações */
+
+@keyframes logoEntrada{
+
+    0%{
         opacity:0;
-        transform:scale(.6);
+        transform:scale(.75);
     }
-    to{
+
+    60%{
+        opacity:1;
+        transform:scale(1.04);
+    }
+
+    100%{
         opacity:1;
         transform:scale(1);
     }
 }
 
-@keyframes saidaIntro{
-    to{
+@keyframes introSaida{
+
+    0%{
+        opacity:1;
+        visibility:visible;
+    }
+
+    100%{
         opacity:0;
         visibility:hidden;
+        pointer-events:none;
     }
 }
 
-/* =========================
+
+/* =====================================================
    CABEÇALHO
-========================= */
+===================================================== */
 
 header{
-    background:linear-gradient(135deg,#df75a7,#a93670);
-    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #050505,
+            #17130b,
+            #050505
+        );
+
+    border-bottom:1px solid #b8954d;
+
     text-align:center;
+
     padding:45px 20px;
 }
 
 header h1{
-    font-size:42px;
+
+    color:#e8c985;
+
+    font-size:40px;
+
+    letter-spacing:2px;
 }
 
 header p{
-    margin-top:10px;
-    font-size:20px;
+
+    margin-top:12px;
+
+    color:#aaa;
+
+    font-family:Arial,sans-serif;
+
+    font-size:17px;
 }
 
-/* =========================
-   FORMULÁRIO
-========================= */
+
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container{
+
     max-width:650px;
+
     margin:45px auto;
-    background:white;
+
     padding:40px;
-    border-radius:30px;
-    box-shadow:0 10px 35px rgba(120,50,90,.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            #121212,
+            #090909
+        );
+
+    border:1px solid #4e4128;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.7);
 }
 
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
 h2{
+
     text-align:center;
-    color:#a44d7d;
-    font-size:32px;
-    margin-bottom:10px;
+
+    color:#e8c985;
+
+    font-size:31px;
+
+    font-weight:400;
+
+    letter-spacing:1px;
 }
 
 .subtitulo{
+
     text-align:center;
-    color:#777;
+
+    margin-top:10px;
     margin-bottom:30px;
-    font-size:18px;
+
+    color:#999;
+
+    font-family:Arial,sans-serif;
+
+    font-size:16px;
 }
 
+
+/* =====================================================
+   CAMPOS
+===================================================== */
+
 label{
+
     display:block;
-    font-weight:bold;
+
     margin-top:22px;
     margin-bottom:8px;
-    font-size:18px;
+
+    color:#d8c08a;
+
+    font-family:Arial,sans-serif;
+
+    font-weight:bold;
+
+    font-size:16px;
 }
 
 input,
 select{
+
     width:100%;
-    padding:18px;
-    border:1px solid #ddd;
-    border-radius:16px;
-    font-size:18px;
-    background:white;
+
+    padding:17px;
+
+    border-radius:13px;
+
+    border:1px solid #51452d;
+
+    background:#111;
+
+    color:#eee;
+
+    font-family:Arial,sans-serif;
+
+    font-size:17px;
+
+    outline:none;
+}
+
+input::placeholder{
+
+    color:#777;
 }
 
 input:focus,
 select:focus{
-    outline:none;
-    border-color:#c55b91;
+
+    border-color:#d8b96c;
+
+    box-shadow:
+        0 0 0 2px rgba(216,185,108,.12);
 }
+
+
+/* =====================================================
+   VALOR
+===================================================== */
 
 .valor{
+
     margin-top:25px;
-    padding:22px;
-    background:#fff0f6;
-    color:#a44d7d;
+
+    padding:21px;
+
+    border-radius:15px;
+
     text-align:center;
-    font-size:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #17130c,
+            #0c0c0c
+        );
+
+    border:1px solid #725d32;
+
+    color:#e8c985;
+
+    font-family:Arial,sans-serif;
+
+    font-size:21px;
+
     font-weight:bold;
-    border-radius:18px;
 }
 
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
 button{
+
     width:100%;
+
     margin-top:30px;
-    padding:20px;
-    border:0;
-    border-radius:18px;
-    background:linear-gradient(135deg,#d66b9f,#ad3f77);
-    color:white;
-    font-size:21px;
+
+    padding:19px;
+
+    border:1px solid #e8c985;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c6a45b,
+            #e8c985,
+            #b58d42
+        );
+
+    color:#080808;
+
+    font-family:Arial,sans-serif;
+
+    font-size:19px;
+
     font-weight:bold;
+
     cursor:pointer;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.4);
+
+    transition:.2s;
+}
+
+button:active{
+
+    transform:scale(.98);
 }
 
 button:disabled{
-    opacity:.6;
+
+    opacity:.55;
+
+    cursor:not-allowed;
 }
 
+
+/* =====================================================
+   MENSAGENS
+===================================================== */
+
 .mensagem{
-    margin-top:25px;
-    padding:20px;
-    border-radius:18px;
-    text-align:center;
-    font-size:18px;
+
     display:none;
+
+    margin-top:25px;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    font-family:Arial,sans-serif;
+
+    font-size:17px;
+
+    line-height:1.7;
 }
 
 .sucesso{
+
     display:block;
-    background:#e9f9ef;
-    color:#28734b;
+
+    background:#101b14;
+
+    border:1px solid #496f53;
+
+    color:#9dd5aa;
 }
 
 .erro{
+
     display:block;
-    background:#ffe9e9;
-    color:#a52828;
+
+    background:#1b1010;
+
+    border:1px solid #713d3d;
+
+    color:#e69b9b;
 }
 
-/* =========================
+
+/* =====================================================
    RODAPÉ
-========================= */
+===================================================== */
 
 footer{
+
     text-align:center;
-    padding:30px;
-    color:#888;
+
+    padding:35px;
+
+    color:#777;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
 }
 
-/* CELULAR */
+
+/* =====================================================
+   CELULAR
+===================================================== */
 
 @media(max-width:600px){
 
+    .logo{
+
+        width:240px;
+        height:170px;
+
+        font-size:88px;
+    }
+
+    .intro-conteudo h1{
+
+        font-size:29px;
+
+        letter-spacing:4px;
+    }
+
     header h1{
+
         font-size:34px;
     }
 
     .container{
-        margin:25px 15px;
-        padding:25px 20px;
+
+        margin:25px 13px;
+
+        padding:28px 20px;
+
+        border-radius:22px;
     }
 
     h2{
-        font-size:29px;
-    }
 
-    .logo-nl{
-        width:130px;
-        height:130px;
-        font-size:48px;
-    }
-
-    .intro-conteudo h1{
-        font-size:32px;
+        font-size:28px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     INTRO NL
-========================= -->
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
 <div id="intro">
 
     <div class="intro-conteudo">
 
-        <div class="logo-nl">
-            NL
+        <div class="logo">
+            N L
         </div>
 
-        <h1>Nikky Lashes</h1>
+        <h1>NIKKY LASHES</h1>
 
-        <p>Realce sua beleza ✨</p>
+        <p>Beauty Studio</p>
 
     </div>
 
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      CABEÇALHO
-========================= -->
+===================================================== -->
 
 <header>
 
-    <h1>✨ Nikky Lashes</h1>
+    <h1>✦ Nikky Lashes</h1>
 
     <p>Realce sua beleza, agende seu horário</p>
 
 </header>
 
 
-<!-- =========================
+<!-- =====================================================
      AGENDA
-========================= -->
+===================================================== -->
 
 <div class="container">
 
@@ -295,6 +582,7 @@ footer{
 
 
     <form id="formAgendamento">
+
 
         <label>Nome da cliente</label>
 
@@ -329,7 +617,11 @@ footer{
 
         <label>Horário</label>
 
-        <select id="horario" required disabled>
+        <select
+            id="horario"
+            required
+            disabled
+        >
 
             <option value="">
                 Escolha primeiro o dia
@@ -346,34 +638,55 @@ footer{
                 Selecione o modelo
             </option>
 
-            <option value="Clássico" data-valor="100">
+            <option
+                value="Clássico"
+                data-valor="100"
+            >
                 Clássico — R$ 100,00
             </option>
 
-            <option value="Volume Brasileiro" data-valor="120">
+            <option
+                value="Volume Brasileiro"
+                data-valor="120"
+            >
                 Volume Brasileiro — R$ 120,00
             </option>
 
-            <option value="Volume Russo" data-valor="140">
+            <option
+                value="Volume Russo"
+                data-valor="140"
+            >
                 Volume Russo — R$ 140,00
             </option>
 
-            <option value="Volume Híbrido" data-valor="130">
+            <option
+                value="Volume Híbrido"
+                data-valor="130"
+            >
                 Volume Híbrido — R$ 130,00
             </option>
 
-            <option value="Mega Volume" data-valor="160">
+            <option
+                value="Mega Volume"
+                data-valor="160"
+            >
                 Mega Volume — R$ 160,00
             </option>
 
-            <option value="Manutenção" data-valor="90">
+            <option
+                value="Manutenção"
+                data-valor="90"
+            >
                 Manutenção — R$ 90,00
             </option>
 
         </select>
 
 
-        <div class="valor" id="valor">
+        <div
+            class="valor"
+            id="valor"
+        >
             Valor do procedimento: R$ 0,00
         </div>
 
@@ -384,6 +697,7 @@ footer{
         >
             Confirmar agendamento
         </button>
+
 
     </form>
 
@@ -397,15 +711,18 @@ footer{
 
 
 <footer>
-    Nikky Lashes ✨
+
+    Nikky Lashes ✦
+
 </footer>
+
 
 
 <script>
 
-/* ==========================================
+/* =====================================================
    SUPABASE
-========================================== */
+===================================================== */
 
 const SUPABASE_URL =
 "https://annmuqmsdjzysusnfklf.supabase.co";
@@ -414,9 +731,9 @@ const SUPABASE_KEY =
 "sb_publishable_L_EQc3998bYRyLap6B9Jzg_sDfz5wuV";
 
 
-/* ==========================================
+/* =====================================================
    ELEMENTOS
-========================================== */
+===================================================== */
 
 const dataSelect =
 document.getElementById("data");
@@ -440,11 +757,12 @@ const botao =
 document.getElementById("botao");
 
 
-/* ==========================================
-   HORÁRIOS DO STUDIO
-========================================== */
+/* =====================================================
+   HORÁRIOS
+===================================================== */
 
 const horarios = [
+
     "09:00",
     "10:00",
     "11:00",
@@ -455,12 +773,13 @@ const horarios = [
     "16:00",
     "17:00",
     "18:00"
+
 ];
 
 
-/* ==========================================
+/* =====================================================
    CRIAR DIAS
-========================================== */
+===================================================== */
 
 function criarDias(){
 
@@ -468,7 +787,8 @@ function criarDias(){
 
     for(let i = 0; i < 60; i++){
 
-        const data = new Date(hoje);
+        const data =
+            new Date(hoje);
 
         data.setDate(
             hoje.getDate() + i
@@ -478,12 +798,14 @@ function criarDias(){
             data.getFullYear();
 
         const mes =
-            String(data.getMonth()+1)
-            .padStart(2,"0");
+            String(
+                data.getMonth()+1
+            ).padStart(2,"0");
 
         const dia =
-            String(data.getDate())
-            .padStart(2,"0");
+            String(
+                data.getDate()
+            ).padStart(2,"0");
 
         const valor =
             `${ano}-${mes}-${dia}`;
@@ -499,13 +821,15 @@ function criarDias(){
         option.textContent = texto;
 
         dataSelect.appendChild(option);
+
     }
+
 }
 
 
-/* ==========================================
-   BUSCAR HORÁRIOS OCUPADOS
-========================================== */
+/* =====================================================
+   HORÁRIOS OCUPADOS
+===================================================== */
 
 async function carregarHorarios(){
 
@@ -513,9 +837,10 @@ async function carregarHorarios(){
         dataSelect.value;
 
     horarioSelect.innerHTML =
-        '<option value="">Carregando horários...</option>';
+        '<option value="">Carregando...</option>';
 
     horarioSelect.disabled = true;
+
 
     if(!data){
 
@@ -525,16 +850,21 @@ async function carregarHorarios(){
         return;
     }
 
+
     try{
 
         const resposta =
             await fetch(
+
                 SUPABASE_URL +
                 "/rest/v1/rpc/horarios_ocupados",
+
                 {
+
                     method:"POST",
 
                     headers:{
+
                         "Content-Type":
                             "application/json",
 
@@ -544,12 +874,17 @@ async function carregarHorarios(){
                         "Authorization":
                             "Bearer " +
                             SUPABASE_KEY
+
                     },
 
                     body:JSON.stringify({
+
                         p_data:data
+
                     })
+
                 }
+
             );
 
 
@@ -562,13 +897,18 @@ async function carregarHorarios(){
             throw new Error(
                 JSON.stringify(dados)
             );
+
         }
 
 
         const ocupados =
-            dados.map(item =>
-                String(item.horario)
-                .substring(0,5)
+            dados.map(
+
+                item =>
+                    String(
+                        item.horario
+                    ).substring(0,5)
+
             );
 
 
@@ -576,36 +916,51 @@ async function carregarHorarios(){
             '<option value="">Escolha o horário</option>';
 
 
-        horarios.forEach(hora => {
+        horarios.forEach(
 
-            const option =
-                document.createElement("option");
+            hora => {
 
-            option.value = hora;
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value = hora;
 
 
-            if(ocupados.includes(hora)){
+                if(
+                    ocupados.includes(hora)
+                ){
 
-                option.disabled = true;
+                    option.disabled = true;
 
-                option.textContent =
-                    hora + " - OCUPADO";
+                    option.textContent =
+                        hora +
+                        " - OCUPADO";
 
-            }else{
+                }
+                else{
 
-                option.textContent =
-                    hora;
+                    option.textContent =
+                        hora;
+
+                }
+
+
+                horarioSelect.appendChild(
+                    option
+                );
+
             }
 
-
-            horarioSelect.appendChild(option);
-
-        });
+        );
 
 
         horarioSelect.disabled = false;
 
-    }catch(erro){
+
+    }
+    catch(erro){
 
         console.error(erro);
 
@@ -617,19 +972,15 @@ async function carregarHorarios(){
 }
 
 
-/* ==========================================
-   ALTERAÇÃO DO DIA
-========================================== */
-
 dataSelect.addEventListener(
     "change",
     carregarHorarios
 );
 
 
-/* ==========================================
-   MOSTRAR VALOR
-========================================== */
+/* =====================================================
+   VALOR
+===================================================== */
 
 modeloSelect.addEventListener(
     "change",
@@ -645,17 +996,21 @@ modeloSelect.addEventListener(
                 opcao.dataset.valor || 0
             );
 
+
         valorDiv.textContent =
             "Valor do procedimento: R$ " +
-            valor.toFixed(2)
+
+            valor
+                .toFixed(2)
                 .replace(".",",");
+
     }
 );
 
 
-/* ==========================================
-   ENVIAR AGENDAMENTO
-========================================== */
+/* =====================================================
+   AGENDAMENTO
+===================================================== */
 
 form.addEventListener(
     "submit",
@@ -678,18 +1033,26 @@ form.addEventListener(
 
 
         const nome =
-            document.getElementById("nome")
-            .value.trim();
+            document
+                .getElementById("nome")
+                .value
+                .trim();
+
 
         const whatsapp =
-            document.getElementById("whatsapp")
-            .value.trim();
+            document
+                .getElementById("whatsapp")
+                .value
+                .trim();
+
 
         const data =
             dataSelect.value;
 
+
         const horario =
             horarioSelect.value;
+
 
         const modelo =
             modeloSelect.value;
@@ -699,6 +1062,7 @@ form.addEventListener(
             modeloSelect.options[
                 modeloSelect.selectedIndex
             ];
+
 
         const valor =
             Number(
@@ -710,12 +1074,16 @@ form.addEventListener(
 
             const resposta =
                 await fetch(
+
                     SUPABASE_URL +
                     "/rest/v1/rpc/fazer_agendamento",
+
                     {
+
                         method:"POST",
 
                         headers:{
+
                             "Content-Type":
                                 "application/json",
 
@@ -725,6 +1093,7 @@ form.addEventListener(
                             "Authorization":
                                 "Bearer " +
                                 SUPABASE_KEY
+
                         },
 
                         body:JSON.stringify({
@@ -748,7 +1117,9 @@ form.addEventListener(
                                 valor
 
                         })
+
                     }
+
                 );
 
 
@@ -761,6 +1132,7 @@ form.addEventListener(
                 throw new Error(
                     JSON.stringify(resultado)
                 );
+
             }
 
 
@@ -773,6 +1145,7 @@ form.addEventListener(
                     resultado.mensagem ||
                     "Horário indisponível."
                 );
+
             }
 
 
@@ -781,19 +1154,37 @@ form.addEventListener(
 
 
             mensagem.innerHTML = `
-                ✅ <strong>Agendamento realizado com sucesso!</strong>
+
+                ✦ <strong>
+                Agendamento realizado com sucesso!
+                </strong>
+
                 <br><br>
+
                 Cliente: ${nome}
+
                 <br>
-                Data: ${data.split("-").reverse().join("/")}
+
+                Data:
+                ${data.split("-").reverse().join("/")}
+
                 <br>
+
                 Horário: ${horario}
+
                 <br>
+
                 Modelo: ${modelo}
+
                 <br>
-                Valor: R$ ${valor.toFixed(2).replace(".",",")}
+
+                Valor:
+                R$ ${valor.toFixed(2).replace(".",",")}
+
                 <br><br>
-                💕 Obrigada por escolher a Nikky Lashes!
+
+                ✦ Nikky Lashes agradece sua preferência!
+
             `;
 
 
@@ -815,7 +1206,8 @@ form.addEventListener(
                 true;
 
 
-        }catch(erro){
+        }
+        catch(erro){
 
             console.error(erro);
 
@@ -846,9 +1238,9 @@ form.addEventListener(
 );
 
 
-/* ==========================================
+/* =====================================================
    INICIAR
-========================================== */
+===================================================== */
 
 criarDias();
 
