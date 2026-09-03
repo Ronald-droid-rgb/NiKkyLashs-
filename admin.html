@@ -372,37 +372,47 @@ async function excluirAgendamento(id) {
   try {
 
     const resposta = await fetch(
-      SUPABASE_URL + "/rest/v1/agendamentos?id=eq." + id,
+      SUPABASE_URL + "/rest/v1/rpc/excluir_agendamento",
       {
-        method: "DELETE",
+        method: "POST",
 
         headers: {
+          "Content-Type": "application/json",
           "apikey": SUPABASE_KEY,
           "Authorization": "Bearer " + SUPABASE_KEY
-        }
+        },
+
+        body: JSON.stringify({
+          p_id: id
+        })
       }
     );
 
+    const dados = await resposta.json();
+
     if (!resposta.ok) {
-
-      const erro = await resposta.text();
-
-      throw new Error(erro);
+      throw new Error(JSON.stringify(dados));
     }
 
-    alert("Agendamento excluído.");
+    if (dados.sucesso) {
 
-    carregarAgendamentos();
+      alert("Agendamento excluído com sucesso!");
+
+      carregarAgendamentos();
+
+    } else {
+
+      alert(dados.mensagem || "Agendamento não encontrado.");
+
+    }
 
   } catch (erro) {
 
-    alert(
-      "Não foi possível excluir o agendamento."
-    );
+    alert("Não foi possível excluir o agendamento.");
 
     console.error(erro);
   }
-}
+  }
 
 
 function escapar(texto) {
